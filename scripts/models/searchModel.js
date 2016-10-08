@@ -2,6 +2,12 @@
 
   var searchModel = {};
 
+  function searchResults(id, name, sprite) {
+    this.id = id;
+    this.name = name;
+    this.sprite = sprite;
+  }
+
   searchModel.getUserInput = function(callback) {
     $('#submit').on('click', function(event) {
       event.preventDefault();
