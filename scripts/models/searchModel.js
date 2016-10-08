@@ -2,7 +2,7 @@
 
   var searchModel = {};
 
-  function searchResults(id, name, sprite) {
+  function pokemon(id, name, sprite) {
     this.id = id;
     this.name = name;
     this.sprite = sprite;
@@ -12,7 +12,6 @@
     $('#submit').on('click', function(event) {
       event.preventDefault();
       var userInput = $('#id').val();
-      console.log(userInput);
       callback(userInput);
     });
   },
@@ -20,7 +19,8 @@
   searchModel.getDataById = function(userInput) {
     $.get('http://pokeapi.co/api/v2/pokemon/' + userInput + '/')
     .done(function(data) {
-      console.log(data.name);
+      var results = new pokemon(data.id, data.name, data.sprites.front_default);
+      searchView.compileTemplate(results);
     });
   };
 

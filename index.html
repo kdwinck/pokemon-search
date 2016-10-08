@@ -3,6 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>Pokemon Search</title>
+
+    <script id="pokemon-template" type="text/x-handlebars-template">
+      <div class="pokemon">
+        <h1>{{this.name}}</h1>
+        <ul>
+          <li>ID: {{this.id}}</li>
+        </ul>
+        <img src="{{this.sprite}}" alt="">
+      </div>
+    </script>
+
   </head>
   <body>
 
@@ -15,10 +26,12 @@
         <input id="id" type="text">
         <input id="submit" type="submit">
       </form>
+
+      <section id="results"></section>
     </main>
 
     <script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <!-- Models -->
     <script src="scripts/models/searchModel.js" type="text/javascript"></script>
     <!-- Controllers -->
