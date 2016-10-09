@@ -2,8 +2,10 @@
 
   var searchModel = {};
 
-  function pokemon(id, name, sprite) {
+  function pokemon(id, height, weight, name, sprite) {
     this.id = id;
+    this.height = height;
+    this.weight = weight;
     this.name = name;
     this.sprite = sprite;
   }
@@ -19,7 +21,7 @@
   searchModel.getDataById = function(userInput) {
     $.get('http://pokeapi.co/api/v2/pokemon/' + userInput + '/')
     .done(function(data) {
-      var results = new pokemon(data.id, data.name, data.sprites.front_default);
+      var results = new pokemon(data.id, data.height, data.weight, data.name, data.sprites.front_default);
       searchView.compileTemplate(results);
     });
   };
